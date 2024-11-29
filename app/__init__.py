@@ -7,7 +7,7 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db' #это имя файла базы данных, который будет создан в корневом каталоге проекта
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///clicker.db' #это имя файла базы данных, который будет создан в корневом каталоге проекта
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app) #для безопасного хэширования паролей
@@ -15,4 +15,4 @@ bcrypt = Bcrypt(app) #для безопасного хэширования па�
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'  # Модуль будет перенаправлять пользователя на маршрут, который мы указываем (на авторизацию)
 
-from app import routes
+from app import routes, models
